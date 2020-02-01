@@ -1,0 +1,235 @@
+<!doctype html>
+<html >
+<meta charset="utf-8">
+<head>
+
+    <meta charset="utf-8">
+    <title>فرم ورود</title>
+    <meta name="generator" content=" ">
+
+    <link href="../css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/really-simple-jquery-dialog.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/injaction.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+
+    <link rel="stylesheet" href="../css/really-simple-jquery-dialog.css">
+    <script type="text/javascript" src="../js/really-simple-jquery-dialog.js"></script>
+    <link rel="stylesheet" href="../css/alertify.core.css" id="toggleCSS" />
+    <link rel="stylesheet" href="../css/alertify.default.css" id="toggleCSS" />
+    <script src="../js/alertify.js"></script>
+
+
+    <div id="testAlert" style="z-index: 1000;"></div>
+    <div id="testConfirm" style="z-index: 1000;"></div>
+    <style>
+        #loader1 {
+            position: absolute;
+            border: 160px solid #000000;
+            border-radius: 50%;
+            border-top: 10px solid blue;
+            border-left: 10px solid sandybrown;
+            border-right: 10px solid green;
+            border-bottom: 10px solid red;
+            width: 70px;
+
+            height: 70px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .tr1:hover td
+        {
+
+            background-color: #f5e79e;
+        }
+
+
+    </style>
+    <script type="text/javascript" >
+
+
+        function reset () {
+            alertify.set({
+                labels : {
+                    ok     : "بله",
+                    cancel : "خیر"
+                },
+                delay : 5000,
+                buttonReverse : false,
+                buttonFocus   : "ok"
+            });
+        }
+
+        $(document).ready(function () {
+
+
+
+            $.ajaxSetup({
+                cache: false,
+                error: function (x, e) {
+                    if (x.status == 0) {
+                        window.location.href="asl400.html";
+                        return false;
+                    }
+                }
+            });
+
+            $('#Button1').click(function () {
+            
+//////////////////
+                if(   $('#Editbox1').val().length < 1 ||$('#Editbox2').val().length <6  )
+                {
+                    reset();
+                    alertify.alert("لطفا اطلاعات را درست وارد نمایید<br><br>");
+                    return false;
+
+                }
+
+                else
+                {
+                    // document.getElementById('loader1').style.display = "block";
+                    // document.getElementById('overly').style.display = "block";
+                    var   user = $("#Editbox1").val().trim();
+                    var   pass = $("#Editbox2").val().trim();
+
+                    // $.post("/people", //az URL of the page on server
+                    //     {
+                    //         user: user,  pass: pass,
+                    //     },
+                    //     function (response, status) { // Required Callback Function
+                    //
+                    //         document.getElementById('loader1').style.display = "none";
+                    //         document.getElementById('overly').style.display = "none";
+                    //
+                    //         var aa = response.trim();
+                    //         var n = aa.search("dorost");
+                    //         var n1 = aa.search("mehman");
+                    //         window.location.href = "asli.html" ;
+                    //         if (n != -1) {
+                    //             window.location.href = "asli.html" ;
+                    //         }
+                    //         else if(n1 != -1)
+                    //         {
+                    //             window.location.href = "asli.html" ;
+                    //         }
+                    //         else
+                    //
+                    //         {
+                    //             reset();
+                    //             alertify.alert("نام کاربری یا رمز عبور اشتباه می باشد<br><br>");
+                    //             return false;
+                    //
+                    //         }
+                    //
+                    //
+                    //     }
+                    // );
+
+                        var firstNameFilter = $("#Editbox1").val().trim();
+                        var url;
+                        if (firstNameFilter != '') {
+                            url = '/people?firstName=' + firstNameFilter;
+                        } else {
+                            url = '/people';
+                        }
+                        $.ajax({
+                            url: url,
+                            contentType: 'application/json',
+                            method: 'GET',
+                            success: function (r) {
+                              //  $('#result').html(JSON.stringify(r, null, 2));
+
+                                    console.log(r[0]);
+
+
+                            },
+                            error: function (r, e) {
+                                alert(r + ' ' + e);
+                            }
+                        });
+
+
+
+
+                }
+//////////////////////////
+            });
+
+        });
+    </script>
+
+
+</head>
+<body >
+
+<div >
+
+
+    <div id="wb_Form1"  style="position:absolute;left:35%;border-radius: 13px 13px 13px 13px;
+   top:100px;width:391px;height:252px;z-index:999;
+   background-color: #dfe2cf; ">
+        <div  id="loader1" style="position: absolute;left: 180px;top: 203px;z-index: 105;display: none;"></div>
+        <img  id="overly" style="position: absolute;width: 100%;height: 100%;background-color: rgba(25, 25, 25, 0.5);
+    ;z-index: 100;display: none;">
+        <div id="dd" style="z-index: 999;"></div>
+
+        <div class="owl" style="position: absolute;top: -100px;left: 90px;">
+            <div class="hand"></div>
+            <div class="hand hand-r"></div>
+            <div class="arms">
+                <div class="arm"></div>
+                <div class="arm arm-r"></div>
+            </div>
+        </div>
+        <form name="Form1" autocomplete="off"  method="post"  id="Form1">
+
+           <input type="text" autocomplete="off"
+                                                                       id="Editbox1" class="style1" style="position:absolute;left:81px;top:72px;
+                width:186px;font-family: naz; font-size: 20px;
+         height:20px;z-index:0; border: 1px #BC8F8F solid;"
+                                                                       name="karbari" onkeydown="if(event.keyCode==13){document.getElementById('Editbox2').focus();};"
+                                                                       value="" maxlength="30" title=" ">
+            <label for="password" id="Label2" style="position:absolute;
+         left:276px;top:69px;width:72px;height:20px;line-height:20px;z-index:1;text-align: left;">نام کاربری</label>
+            <input type="password" class="style1" id="Editbox2"  onkeydown="if
+         (event.keyCode==13 )    {    document.getElementById('Button1').focus(); };"style="position:absolute;font-family: naz; font-size: 20px;
+         left:81px;top:112px;width:186px;height:20px;z-index:2; border: 1px #BC8F8F solid;" name="pass" value="" maxlength="30" title=" ">
+            <label for="" id="Label3" style="position:absolute;left:276px;top:108px;width:54px;height:20px;line-height:20px;z-index:3;text-align: left;">رمز عبور</label>
+            <input type="button" id="Button1"   name="buttn" value="ورود"
+                   style="position:absolute;left:72px;top:199px;width:85px;height:41px;z-index:4;color: #0000FF;" >
+            <label for="" id="Label1" style="position:absolute;left:140px;top:1px;width:109px;height:38px;line-height:38px;z-index:7;">ورود به برنامه</label>
+            <div id="PageFooter1" style="position: absolute; margin-left: 0px;text-align:left;left:1px;top:100.5%;width:99.5%;
+  height:20px;z-index:1;font-family: naz;font-size: 15px;
+  color: #0000FF; box-shadow: 0px 70px 105px 35px #888888;text-align: center;background:#e6e6fa;border: 1px;border-style: solid;
+border-color: #ff4804;">
+                برنامه نویس : حسن کشتمند --   تلفن همراه: 09189964931
+            </div>
+        </form>
+
+
+    </div>
+
+
+
+</div>
+
+</div>
+
+
+</body>
+
+
+</html>
+
+
+
+

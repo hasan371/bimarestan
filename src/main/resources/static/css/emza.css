@@ -1,0 +1,156 @@
+div#container
+{
+    width: 970px;
+    position: relative;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+html
+{
+    background-image: url("./images.jpg");
+    background-repeat: repeat;
+}
+
+input {
+
+    direction: RTL;
+}
+
+body
+{
+    font-family: naz;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+}
+@font-face {
+    font-family: hasan;
+    src: url(btitr.ttf);
+}
+
+@font-face {
+    font-family: naz;
+    src: url(nazanin.ttf);
+
+}
+@font-face {
+    font-family: IranNastaliq;
+    src: url(IranNastaliq.ttf);
+}
+#Combobox1
+{
+    font-family: naz;
+}
+option
+{
+    font-family: naz;
+}
+#wb_Form1
+{
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px #0000FF solid;
+    -moz-box-shadow: 0px 3px 10px #808080;
+    -webkit-box-shadow: 0px 3px 10px #808080;
+    box-shadow: 0px 3px 10px #808080;
+}
+#wb_Text1
+{
+    background-color: transparent;
+    background-image: none;
+    border: 0px #000000 solid;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+#wb_Text1 div
+{
+    text-align: left;
+}
+#Label1,#Label2,#Label3,#Label4,#Label5,#Label6,#Label7,#Label8
+{
+    border: 0px #CCCCCC solid;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    background-image: none;
+    color :#0000CD;
+    font-family: "naz";
+    font-weight: normal;
+    font-size: 17px;
+    padding: 4px 4px 4px 4px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+#Editbox1:focus,#Editbox2:focus,#Editbox3:focus,#Editbox4:focus,#Editbox5:focus,#Editbox6:focus,#Combobox1:focus
+,#Combobox2:focus
+
+{
+    border-color: #66AFE9;
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+    outline: 0;
+}
+
+.style1
+{
+    font-family: "B Nazanin";
+    font-weight: normal;
+    font-size: 16px;
+    font-style: normal;
+    text-decoration: none;
+    color: #0000FF;
+    background-color: transparent;
+    border: 1px #BC8F8F solid;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.style2
+{
+    font-family: "B Nazanin";
+    font-weight: normal;
+    font-size: 16px;
+    font-style: normal;
+    text-align: right;
+    text-decoration: none;
+    color: #0000CD;
+    background-color: transparent;
+    border: 1px #BC8F8F solid;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+#Button1 , #Button2, #Button4, #Button3, #Button30, #Button31
+{
+   outline: none;
+   font-family: naz;
+    font-size: 17px;
+    color: #0000CD !important;
+    border:1px solid #CE9A01;-webkit-box-shadow: #FFF563 0px 1px 0px inset;-moz-box-shadow: #FFF563 0px 1px 0px inset; box-shadow: #FFF563 0px 1px 0px inset; -webkit-border-radius: 10px; -moz-border-radius: 10px;border-radius: 10px;font-family:arial, helvetica, sans-serif; ; text-decoration:none; display:inline-block;text-shadow: 0px 1px 0 rgba(255,255,255,0.44);font-weight:bold;
+
+    background-image: linear-gradient(to bottom, #92ffa3, #cef5ff); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#fff992, endColorstr=#eeffe4);
+
+}
+#Button1:hover ,#Button2:hover ,#Button4:hover,#Button3:hover,#Button30:hover,#Button31:hover{
+    font-family: naz;
+   font-size: 18px;
+   color: #0000CD;
+   border: 1px solid #CE9A01;
+   background-color: #ff6767;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#ff6767), to(#eafcff));
+   background-image: -webkit-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -moz-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -ms-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -o-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: linear-gradient(to bottom, #ffd4c7, #ffbae8);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fff992, endColorstr=#eeffe4);
+
+cursor: pointer;
+
+}

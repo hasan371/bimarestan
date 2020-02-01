@@ -1,0 +1,58 @@
+div#container
+{
+   width: 970px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
+body
+{
+   background-color: #FF0000;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   text-align: center;
+
+}
+select{
+   verticle-align:middle;
+}
+@font-face {
+   font-family: hasan;
+   src: url(btitr.ttf);
+}
+@font-face {
+   font-family: naz;
+   src: url(nazanin.ttf);
+
+}
+@font-face {
+   font-family: iran;
+   src: url(IRANSansR.ttf);
+
+}
+html
+{
+
+
+   background-image: url('./images.jpg');
+   background-repeat: repeat;
+
+
+}
+#wb_Form1
+{
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 1px #0000FF solid;
+   -moz-box-shadow: 0px 3px 10px #808080;
+   -webkit-box-shadow: 0px 3px 10px #808080;
+   box-shadow: 0px 3px 10px #808080;
+}
+.tr1:hover td
+{
+   background-color: #FFD4C7;
+}

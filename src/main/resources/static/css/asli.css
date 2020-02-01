@@ -1,0 +1,401 @@
+div#container
+{
+   width: 970px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
+
+@font-face {
+   font-family: FontAwesome;
+   src: url(FontAwesome.otf);
+}
+
+@font-face {
+   font-family: Iran;
+   src: url(IranNastaliq.ttf);
+}
+@font-face {
+   font-family: iarnsans;
+   src: url(IRANSansR.ttf);
+
+}
+
+#reject {
+   -webkit-animation-name: blinker;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;
+   -moz-animation-name: blinker;
+   -moz-animation-duration: 2s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;
+   animation-name: blinker;
+   animation-duration: 2s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite; color: red;
+}
+
+@-moz-keyframes blinker {
+   0% { opacity: 1.0; }
+   50% { opacity: 0.1; }
+   100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+   0% { opacity: 1.0; }
+   50% { opacity: 0.1; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+   0% { opacity: 1.0; }
+   50% { opacity: 0.1; }
+   100% { opacity: 1.0; }
+}
+html
+{
+
+
+   background-image: url("images.jpg");
+   background-repeat: repeat;
+
+
+}
+
+body
+{
+
+   background-color: #FF0000;
+   color: #0000FF;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   text-align: center;
+
+}
+ #wb_CssMenu1 ul li a
+    {
+       color: #0000FF;
+    }
+
+#wb_Form1
+{
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 1px #0000FF solid;
+   -moz-box-shadow: 0px 3px 10px #808080;
+   -webkit-box-shadow: 0px 3px 10px #808080;
+   box-shadow: 0px 3px 10px #808080;
+}
+#wb_CssMenu1
+{
+
+   border: 0px #006400 solid;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   background-color: transparent;
+
+}
+#wb_CssMenu1 ul
+{
+
+   border-radius: 3px;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   display: inline-block;
+
+}
+#wb_CssMenu1 li
+{
+
+   border-radius: 3px;
+   float: left;
+   margin: 0;
+   padding: 0px 0px 0px 0px;
+}
+#wb_CssMenu1 a
+{
+
+   display: block;
+   float: left;
+   color: #333333;
+   border: 1px #CCCCCC solid;
+   background-color: #E6E6FA;
+   background-image: none;
+   font-family: Tahoma;
+   font-weight: normal;
+   font-size: 13px;
+   font-style: normal;
+   text-decoration: none;
+   height: 26px;
+   line-height: 26px;
+   padding: 0px 5px 0px 5px;
+   vertical-align: middle;
+   text-align: right;
+
+}
+#wb_CssMenu1 li:hover a, #wb_CssMenu1 a:hover
+{
+
+   color: #FF6D1F;
+   background-image:  linear-gradient(rgba(255,0,0,0), rgb(247, 255, 180));
+   background-color: #91f3ff;
+
+   border: 1px #2E6DA4 solid;
+   border-radius: 3px;
+}
+#wb_CssMenu1 li.firstmain
+{
+
+   padding-left: 0px;
+}
+#wb_CssMenu1 li.lastmain
+{
+
+   padding-right: 0px;
+}
+#wb_CssMenu1 li:hover, #wb_CssMenu1 li a:hover
+{
+   transition: .8s;
+   position: relative;
+}
+#wb_CssMenu1 a.withsubmenu
+{
+
+   padding: 0 5px 0 5px;
+   background-image: none;
+
+}
+#wb_CssMenu1 li:hover a.withsubmenu, #wb_CssMenu1 a.withsubmenu:hover
+{
+
+   background-image: none;
+
+}
+#wb_CssMenu1 ul ul
+{
+
+
+   position: absolute;
+   left: 0;
+   top: 0;
+   visibility: hidden;
+   width: 100px;
+   height: auto;
+   border: none;
+   background-color: transparent;
+
+
+}
+#wb_CssMenu1 ul :hover ul
+{
+
+   left: 0px;
+   top: 28px;
+   padding-top: 0px;
+   visibility: visible;
+
+}
+#wb_CssMenu1 .firstmain:hover ul
+{
+   left: 0px;
+}
+#wb_CssMenu1 li li
+{
+
+
+   width: 100px;
+   padding: 0 0px 0px 0px;
+   border: 0px #C0C0C0 solid;
+   border-width: 0 0px;
+  float: right;
+}
+#wb_CssMenu1 li li.firstitem
+{
+   float: right;
+
+   border-top: 0px #FF69B4 solid;
+   -moz-border-top-left-radius: 10px;
+   -webkit-border-top-left-radius: 10px;
+   border-top-left-radius: 10px;
+   -moz-border-top-right-radius: 10px;
+   -webkit-border-top-right-radius: 10px;
+   border-top-right-radius: 10px;
+
+}
+#wb_CssMenu1 li li.lastitem
+{
+   float: right;
+   text-align: right;
+   border-bottom: 0px #eb69ce solid;
+   -moz-border-bottom-left-radius: 10px;
+   -webkit-border-bottom-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   -moz-border-bottom-right-radius: 10px;
+   -webkit-border-bottom-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+
+}
+#wb_CssMenu1 ul ul a, #wb_CssMenu1 ul :hover ul a
+{
+     margin: 0;
+   width: 86px;
+   height: auto;
+   white-space: normal;
+   padding: 7px 6px 6px 6px;
+   background-color: #E6E6FA;
+   background-image: none;
+
+   border: 1px #ebcccc solid;
+   color: #333333;
+   font-family: Tahoma;
+   font-weight: normal;
+   font-size: 13px;
+   font-style: normal;
+   line-height: 13px;
+
+   text-decoration: none;
+}
+
+
+#wb_CssMenu1 ul :hover ul .firstitem a
+{
+   margin-top: 0px;
+   transition: 1s;
+
+}
+#wb_CssMenu1 ul ul :hover a, #wb_CssMenu1 ul ul a:hover, #wb_CssMenu1 ul ul :hover ul :hover a, #wb_CssMenu1 ul ul :hover ul a:hover
+{
+   float: right;
+   background-color: #FF69B4;
+   background-image: none;
+   border: 1px #ae4895 solid;
+   color: 2a39ff;
+
+}
+#wb_CssMenu1 br
+{
+
+   text-align: right;
+   clear: both;
+   font-size: 1px;
+   height: 0;
+   line-height: 0;
+}
+#leftmenu ul li
+ {
+
+    margin-right: 0px;
+ }
+#leftmenu1 ul li
+{
+
+   margin-right: -12px;
+}
+#leftmenu2  li
+{
+
+   margin-right: 109px;
+}
+p
+{
+   -webkit-perspective: 0px; /* Safari 4-8 */
+   perspective:0px;
+   transform: rotatey(0deg);
+}
+
+#wb_CssMenu1 ul ul a, #wb_CssMenu1 ul :hover ul a, #wb_CssMenu1 ul :hover ul :hover ul a
+{
+
+   float: none;
+   margin: 0;
+   width: 86px;
+   height: auto;
+   white-space: normal;
+   padding: 7px 6px 6px 6px;
+   background-color: #E6E6FA;
+   background-image: none;
+
+   border: 1px #ffffff solid;
+   color: #333333;
+   font-family: Tahoma;
+   font-weight: normal;
+   font-size: 13px;
+   font-style: normal;
+   line-height: 13px;
+
+   text-decoration: none;
+
+}
+
+#wb_CssMenu1 ul ul :hover a, #wb_CssMenu1 ul ul a:hover, #wb_CssMenu1 ul ul :hover ul :hover a, #wb_CssMenu1 ul ul :hover ul a:hover, #wb_CssMenu1 ul ul :hover ul :hover ul :hover a, #wb_CssMenu1 ul ul :hover ul :hover ul a:hover
+{
+
+   float: left;
+   background-image:  linear-gradient(rgba(20, 200, 30, 0.5), rgb(247, 255, 180));
+   background-color: #91f3ff ;
+   border: 1px #4cae4c solid;
+   color: #0000ff;
+    border-radius: 5px;
+
+}
+
+
+#wb_CssMenu1 ul :hover ul ul, #wb_CssMenu1 ul :hover ul :hover ul ul
+{
+
+   left: 0;
+   top: 0;
+   visibility: hidden;
+
+   font-family: Tahoma;
+   font-weight: normal;
+   font-size: 13px;
+   font-style: normal;
+   line-height: 20px;
+
+}
+#wb_CssMenu1 ul :hover ul :hover ul, #wb_CssMenu1 ul :hover ul :hover ul :hover ul
+{
+   left: 100px;
+   top: 0px;
+   width: 103px;
+     height: 12px;
+   visibility: visible;
+   transition: .3s;
+}
+
+
+#Button1
+{
+    font-family: iarnsans;
+    font-size: 16px;
+    color: #0000CD !important;
+    border:1px solid #CE9A01;-webkit-box-shadow: #FFF563 0px 1px 0px inset;-moz-box-shadow: #FFF563 0px 1px 0px inset; box-shadow: #FFF563 0px 1px 0px inset; -webkit-border-radius: 10px; -moz-border-radius: 10px;border-radius: 10px;font-family:arial, helvetica, sans-serif; ; text-decoration:none; display:inline-block;text-shadow: 0px 1px 0 rgba(255,255,255,0.44);font-weight:bold;
+
+    background-image: linear-gradient(to bottom, #92ffa3, #cef5ff); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#fff992, endColorstr=#eeffe4);
+
+}
+
+#Button1:hover
+{
+   font-family: iarnsans;
+   font-size: 17px;
+   color: #0000CD;
+   border: 1px solid #CE9A01;
+   background-color: #ff6767;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#ff6767), to(#eafcff));
+   background-image: -webkit-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -moz-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -ms-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: -o-linear-gradient(top, #ff6767, #ff0d0d);
+   background-image: linear-gradient(to bottom, #ffd4c7, #ffbae8);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fff992, endColorstr=#eeffe4);
+
+cursor: pointer;
+}

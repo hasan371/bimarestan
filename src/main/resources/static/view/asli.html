@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html  >
+<head>
+    <meta charset="utf-8">
+    <title>امورات استراحت پزشکی</title>
+    <meta name="generator" content=" ">
+    <link href="../css/asli.css" rel="stylesheet">
+    <script src="../js/tarikh.js"></script>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.easing-1.3.pack.js"></script>
+    <link rel="stylesheet" href="../css/jquery.fancybox-1.3.4.css">
+
+    <script src="../js/jquery.fancybox-1.3.4.pack.js"></script>
+    <link rel="stylesheet" href="../css/really-simple-jquery-dialog.css">
+    <script src="../js/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script src="../js/wwb11.min.js"></script>
+    <link rel="stylesheet" href="../css/alertify.core.css" id="toggleCSS" />
+    <link rel="stylesheet" href="../css/alertify.default.css" id="toggleCSS" />
+    <script src="../js/alertify.js"></script>
+    <div id="testAlert" style="z-index: 1000;"></div>
+    <div id="testConfirm" style="z-index: 1000;"></div>
+    <script>
+        function reset () {
+
+            alertify.set({
+                labels : {
+                    ok     : "بله",
+                    cancel : "خیر"
+                },
+                delay : 5000,
+                buttonReverse : false,
+                buttonFocus   : "ok"
+            });
+        }
+        function displaylightbox(url, options)
+        {
+            options.padding=10;
+            options.width=650;
+            options.href = url;
+            options.type = 'iframe';
+            $.fancybox(options);
+        }
+    </script>
+    <style>
+        #loader1 {
+
+            position: absolute;
+            border: 160px solid #000000;
+            border-radius: 50%;
+            border-top: 10px solid blue;
+            border-left: 10px solid sandybrown;
+            border-right: 10px solid green;
+            border-bottom: 10px solid red;
+            width: 70px;
+
+            height: 70px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body onpaste="return false" >
+
+<div    id="container" style="color: #0000FF;">
+    <label for="" id="Label1" style="position:absolute;left:400px;top:41px;width:209px;height:38px;
+    line-height:38px;z-index:7;font-family:'Iran';
+    font-size: 50px;color: #0000FF;" >امورات استراحت پزشکی</label>
+
+    <img src="../image/1430748_476.jpg" id="Banner1" alt=" " style="border-width:1px;
+ position:absolute;left:49px;top:0px;width:872px;height:109px;z-index:2;background-repeat: repeat;">
+
+    <div id="wb_Form1" style="position:absolute;left:50px;top:109px; width:868px;
+height:700px;z-index:1;">
+
+        <div  id="loader1" style="position: absolute;left: 311px;top: 273px;z-index: 105;display: none;"></div>
+        <img  id="overly" style="position: absolute;width: 100%;height: 100%;background-color: rgba(25, 25, 25, 0.5);
+    ;z-index: 100;display: none;">
+
+
+        <form name="Form1"  method="post" id="Form1">
+
+
+            <div  style="position: absolute; border: 1px solid #194bff;  width: 359px;border-radius: 7px;
+          height: 180px;top:  506px;left: 34px;z-index: 20;
+          box-shadow: 5px 5px 20px 1px  #000000;"
+            ></div>
+            <label for="" id="Label19" style="position:absolute;
+       left:300px;top:515px;width:107px;font-family: iarnsans !important;
+       height:22px;line-height:22px;z-index:18;font-size:  19px  ;">:کل ثبت شده</label>
+            <label for="" id="kolkol" style="position:absolute;
+       left:225px;top:516px;width:80px;font-family: iarnsans !important;color: #0000FF;
+       height:22px;line-height:22px;z-index:18;text-align: center;font-size:  19px  ;"></label>
+            <label for="" id="Label19" style="position:absolute;
+       left:300px;top:545px;width:107px;font-family: iarnsans !important;
+       height:22px;line-height:22px;z-index:18;font-size:  19px  ;">:سپاه</label>
+            <label for="" id="kolsepah" style="position:absolute;
+       left:225px;top:547px;width:70px;font-family: iarnsans !important;color: #0000FF;
+       height:22px;line-height:22px;z-index:18;text-align: center;font-size:  19px  ;"></label>
+            <label for="" id="Label19" style="position:absolute;
+       left:300px;top:575px;width:107px;font-family: iarnsans !important;
+       height:22px;line-height:22px;z-index:18;font-size:  19px  ;">:نیروی انتظامی</label>
+            <label for="" id="kolentzami" style="position:absolute;
+       left:225px;top:577px;width:70px;font-family: iarnsans !important;color: #0000FF;
+       height:22px;line-height:22px;z-index:18;text-align: center;font-size:  19px  ;"></label>
+            <label for="" id="Label19" style="position:absolute;
+       left:300px;top:605px;width:107px;font-family: iarnsans !important;
+       height:22px;line-height:22px;z-index:18;font-size:  19px  ;">:ارتش</label>
+            <label for="" id="kolartesh" style="position:absolute;
+       left:225px;top:606px;width:70px;font-family: iarnsans !important;color: #0000FF;
+       height:22px;line-height:22px;z-index:18;text-align: center;font-size:  19px  ;"></label>
+            <label for="" id="Label19" style="position:absolute;
+       left:300px;top:635px;width:107px;font-family: iarnsans !important;
+       height:22px;line-height:22px;z-index:18;font-size:  19px  ;">:آزاد</label>
+            <label for="" id="kolazad" style="position:absolute;
+       left:225px;top:636px;width:70px;font-family: iarnsans !important;color: #0000FF;
+       height:22px;line-height:22px;z-index:18;text-align: center;font-size:  19px  ;"></label>
+            <input type="button" id="Button1" name="sapt" value="بروز رسانی"
+                   style="position:absolute;left:43px;top:640px;width:90px;height:36px;z-index:75;">
+
+            <script>
+                $(document).ready(function () {
+                    $('#Button1').click(function () {
+
+
+                        document.getElementById('loader1').style.display = "block";
+                        document.getElementById('overly').style.display = "block";
+                        $.post("kolkol.html", //Required URL of the page on server
+                            {
+                                name: "updatekol_updatekol",
+                            },
+                            function (response, status) { // Required Callback Function
+                                var aa = response.trim();
+                                var sapt=aa.split(",");
+                                var n = aa.search("updatekol_updatekol");
+                                if(n!=-1)
+                                {
+                                    $("#kolkol").text(sapt[0]);
+                                    $("#kolsepah").text(sapt[1]);
+                                    $("#kolentzami").text(sapt[2]);
+                                    $("#kolartesh").text(sapt[3]);
+                                    $("#kolazad").text(sapt[4]);
+                                    document.getElementById('loader1').style.display = "none";
+                                    document.getElementById('overly').style.display = "none";
+                                    reset();
+                                    alertify.alert("اطلاعات بروزرسانی گردید<br><br>");
+                                    return false;
+                                }
+
+
+                            });
+
+
+
+                    });
+                });
+            </script>
+
+
+
+            <div  style="width: 864px;position: absolute;left: 1px;
+ text-align: center;  border-top: 5px double #ff710d;
+  border-left: 1px solid #ff710d; border-right: 1px solid #ff710d;
+ height: 104.5%;margin-top: 33px;
+background: linear-gradient(90deg, #F4FFAE 0%,#F4FFAE 35%, rgba(0,212,255,1) 100%);" ></div>
+
+            <label for="" id="Label1" style="position:absolute;left:654px;top:511px;width:209px;height:38px;
+    line-height:38px;z-index:7;font-family:'iarnsans';direction: rtl;
+    font-size: 22px;color: #0000FF;" >تمام پشتیبان گیری ها:</label>
+            <select name="sasa" size="1"  dir="rtl" id="Combobox4"
+                    style="position:absolute;left:525px;top:516px;width:123px;height:28px;
+           z-index:38; text-align: left;font-family: 'iarnsans';font-size: 19px;
+           border: 1px solid #D83526 ;border-radius: 4px;color: #0000CD;">
+
+
+            </select>
+
+
+            <p  style="text-align: right;font-family: Tahoma;
+  font-size: 16px;
+  font-weight: bold  ;font-style:italic;
+     text-shadow: -5px 12px 10px black; color: #ffa31b;margin-right: 120px;margin-top: -74px;" >  کاربر محترم     </p>
+            <p  style="margin-left: 200px;margin-top: 150px;font-family: 'Iran';z-index:999;
+font-size: 90px;width: auto;text-shadow: -5px 14px 10px black;color: #FF69B4;" >قرار گاه تحول اداری وتعالی سازمانی </p>
+            <p  style="margin-left: 200px;margin-top: 100px;font-family: 'Iran';z-index:999;
+font-size: 90px;text-shadow: -5px 14px 10px black;color: #FF69B4;"  >بیمارستان امام حسین علیه السلام</p>
+
+
+
+            <div id="PageFooter1" style="position: absolute; margin-left: 0px;text-align:left;left:1px;top:100.5%;width:99.5%;
+  height:20px;z-index:1;font-family: naz;font-size: 15px;
+  color: #0000FF; box-shadow: 10px 7px 15px #888888;text-align: center;background:#e6e6fa;border: 1px;border-style: solid;
+border-color: #ff4804;">
+                برنامه نویس : حسن کشتمند --   تلفن همراه: 09189964931
+            </div>
+
+        </form>
+
+
+        <div  style="position: absolute; text-align: right;font-family: iarnsans !important;
+  font-size: 22px;
+  font-weight: bold  ;font-style:italic;
+     text-shadow: -5px 12px 10px black; color: #006400;margin-left: 400px;margin-top: -450px;" >  </div>
+        <div style='position: absolute; top: 40px;
+border-radius: 6px;left: 750px;border-color: #BC5F10; margin-right: 5px;text-align: right;
+background-color: #91f3ff;padding: 1px;font-size: 15px;font-family: iarnsans !important; ; font-size: 18px ;
+border-width: 1px;border-style: solid;width: 110px;'  >
+            <br />
+
+            <br />
+            <br />
+        </div>
+        <br />
+
+
+
+
+    </div>
+
+
+    <div id="wb_CssMenu1" style="position:absolute;left:180px;top:109px;width:797px;
+height:28px;text-align:right;z-index:2;background-color: #AFE6FA;
+  box-shadow: 1px 7px 15px #888888; padding-right: 70px;margin-left: -129px;;
+ border-radius: 0;">
+        <ul>
+            <li class="firstmain"><a id="setinga1"  style=" background-color: #ff754e;"  href='./login.html' target="_self">خروج</a>
+            </li>
+            <li class="firstmain">
+                <a id="setinga" href="javascript:displaylightbox('about.html',{})"
+                   target="_self">&#1583;&#1585;&#1576;&#1575;&#1585;&#1607;&nbsp;&#1576;&#1585;&#1606;&#1575;&#1605;&#1607;
+                </a>
+                <ul>
+                    <li class="firstmain"><a  style="color: #0000FF;width: 73px;margin-left: -2px; margin-right: -62px;"
+                                              href="./help.pdf" target="_self">راهنما</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="gozar"><a id="setingp" style="width: 150px;" href="" target="_self">گزارشات</a>
+
+                <ul >
+                    <li class="firstitem"><a  style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;"
+                                              href="./repradeh.html" target="_self">بر اساس رده خدمتی</a>
+                    </li>
+                    <li class="us1" ><a  style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;"
+                                         href="./repdoktor.html" target="_self">بر اساس پزشک</a>
+                    </li>
+                    <li class="us1"><a style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;" href="./repname.html"
+                                       target="_self">براساس نام فرد</a></li>
+                    <li id="dvom0" class="us1"><a  style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;"
+                                                   href="./repsazman.html"
+                                                   target="_self">بر اساس سازمان</a></li>
+                    <li id="dvom0" class="us1"><a  style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;"
+                                                   href="./repozviat.html"
+                                                   target="_self">بر اساس نوع عضویت</a></li>
+                    <li id="dvom0" class="us1"><a  style="color: #0000FF;width: 150px;margin-left: -2px; margin-right: -62px;"
+                                                   href="./repbimari.html"
+                                                   target="_self">بر اساس نوع بیماری</a></li>
+
+                </ul>
+
+
+            </li>
+
+
+
+            <li id="leftmenu1"><a id="setinguser"   href="" target="_self">
+                &#1605;&#1583;&#1740;&#1585;&#1740;&#1578;&nbsp;&#1705;&#1575;&#1585;&#1576;&#1585;&#1575;&#1606;</a>
+
+                <ul >
+
+                    <li class="firstitem"><a style="color: #0000FF;margin-left: -6px; margin-right: -62px;"
+                                             href="adduser.html" target="_self">&#1578;&#1593;&#1585;&#1740;&#1601;&nbsp;&#1705;&#1575;&#1585;&#1576;&#1585;</a>
+                    </li>
+                    <li class="us1" ><a style="color: #0000FF;margin-left: -6px; margin-right: -62px;"
+                                        href="./deluser.html" target="_self">&#1581;&#1584;&#1601;&nbsp;&#1705;&#1575;&#1585;&#1576;&#1585;</a>
+                    </li>
+
+                    <li id="dvom0" class="lastitem"><a style="color: #0000FF;margin-left: -6px; margin-right: -62px;" href="./tagpass.html"
+                                                       target="_self">&#1578;&#1594;&#1740;&#1740;&#1585;&nbsp;&#1585;&#1605;&#1586;</a></li>
+
+                </ul>
+                <style>
+                    #setinga1:after
+                    {
+                        content: '\f023';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #0000CD;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #setindel:after
+                    {
+                        content: '\f023';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #0000CD;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #setinguser:after
+                    {
+                        content: '\f007';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #sertingsapt:after
+                    {
+                        content: '\f0c7';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #sertingdel1:after
+                    {
+                        content: '\f05c';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #sertingsapt1:after
+                    {
+                        content: '\f1c0';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }       #sertingsapt11:after
+                            {
+                                content: '\f236';
+                                font-family: 'FontAwesome';
+                                float: right;
+                                margin-left: 3px;
+                                color: #063e0a;
+                                font-size: 20px;
+                                border-color:  #0000CD;
+                            }
+                    #setinga:after
+                    {
+                        content: '\f129';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 20px;
+                        border-color:  #0000CD;
+                    }
+                    #setingp:after
+                    {
+                        content: '\f0ea';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #seting40:after
+                    {
+                        content: '\f014';
+                        font-family: 'FontAwesome';
+                        float: left;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #setingd:after
+                    {
+                        content: '\f02f';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #seting10:after
+                    {
+                        content: '\f067';
+                        font-family: 'FontAwesome';
+                        float: left;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #seting30:after
+                    {
+                        content: '\f202';
+                        font-family: 'FontAwesome';
+                        float: left;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #seting20:after
+                    {
+                        content: '\f013';
+                        font-family: 'FontAwesome';
+                        float: left;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #setings:after
+                    {
+                        content: '\f085';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #setingk:after
+                    {
+                        content: '\f0c0';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                    #setingh:after
+                    {
+                        content: '\f0fd';
+                        font-family: 'FontAwesome';
+                        float: right;
+                        margin-left: 3px;
+                        color: #063e0a;
+                        font-size: 18px;
+                        border-color:  #0000CD;
+                    }
+                </style>
+            </li>
+
+            <li id="seting" ><a id="sertingsapt11"  href="" style="cursor: pointer;" target="_self">امورات استراحت پزشکی</a>
+                <ul>
+                    <li id="seting" ><a id="sertingsapt"
+                                        style="color: #0000FF;margin-left: 0px;width: 156px; margin-right: -62px;" href="sapt.html" style="cursor: pointer;"
+                                        target="_self">ثبت استراحت پزشکی</a>
+
+                    </li>
+
+
+                    <li id="seting" ><a  style="color: #0000FF;margin-left: 0px;width: 156px; margin-right: -62px;"
+                                         id="sertingdel1"  href="delsapt.html" style="cursor: pointer;" target="_self">حذف استراحت پزشکی</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li id="seting" ><a id="sertingsapt1"
+                                href="backup.html" style="cursor: pointer;" target="_self">پشتیبان گیری</a>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
+
+
+</body>
+
+
+</html>
+
