@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Pass {
+public class LoginEntity {
     @Id
     private  int id;
     private String pass1;
