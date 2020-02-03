@@ -45,6 +45,11 @@
             method: 'GET',
             success: function (r) {
                 $('#result').html(JSON.stringify(r, null, 2));
+                for (var i = 0; i < r.length; i++)
+                {
+                    console.log(r[i].id+ r[i].firstName);
+                }
+
             },
             error: function (r, e) {
                 alert(r + ' ' + e);
