@@ -35,9 +35,9 @@
         var firstNameFilter = $('#firstNameFilter').val();
         var url;
         if (firstNameFilter != '') {
-            url = '/people?firstName=' + firstNameFilter;
+            url = '/people/p1?id=' + firstNameFilter;
         } else {
-            url = '/people';
+            url = '/people/p1';
         }
         $.ajax({
             url: url,
