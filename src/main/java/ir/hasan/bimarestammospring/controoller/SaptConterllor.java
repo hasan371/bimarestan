@@ -3,6 +3,7 @@ package ir.hasan.bimarestammospring.controoller;
 import ir.hasan.bimarestammospring.model.Sapt;
 import ir.hasan.bimarestammospring.repository.SaptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,5 +28,10 @@ public class SaptConterllor {
             return sapt;
         }
     }
+
+
+
+
+
 
 }
