@@ -1,0 +1,1478 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> ثبت سربازان</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script src="js/js-persian-cal.min1.js.download"></script>
+    <script type="text/javascript" src="js/js-persian-cal.min.js"></script>
+    <script src="js/js-persian-cal.min.js.download"></script>
+    <script type="text/javascript" src="js/js-persian-cal.min1.js.download"></script>
+    <link rel="stylesheet" href="css/jquery.Bootstrap-PersianDateTimePicker.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <script src="js/js-persian-cal.min2.js.download"></script>
+
+    <script type="text/javascript" src="js/js-persian-cal.min2.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.ui.core.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.position.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.ui.autocomplete.min.js"></script>
+    <script src="js/datemiladi.js"></script>
+
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/jquery.Bootstrap-PersianDateTimePicker.css">
+    <link rel="stylesheet" href="css/really-simple-jquery-dialog.css">
+    <script type="text/javascript" src="js/really-simple-jquery-dialog.js"></script>
+    <link rel="stylesheet" href="css/alertify.core.css" id="toggleCSS" />
+    <link rel="stylesheet" href="css/alertify.default.css" id="toggleCSS" />
+    <script src="js/alertify.js"></script>
+    <link rel="stylesheet" href="css/ispc-peach.css">
+    <link rel="stylesheet" href="css/addpersenel.css">
+
+    <div id="testAlert" style="z-index: 1000;"></div>
+    <div id="testConfirm" style="z-index: 1000;"></div>
+    <style>
+        a.pcalBtn {
+            position: absolute;;
+            width: 19px;
+            height: 20px;
+            vertical-align: bottom;
+            display: inline-block;
+            background-image: url("pcal.png");
+            background-repeat: no-repeat;
+            margin-top: 188px;
+            margin-left:190px;
+            color: #0000CD;
+        }
+
+
+        a.pcalBtn1:hover {
+            box-shadow: 0 0 1px #66CCFF;
+        }
+        a.pcalBtn2{
+            position: absolute;;
+            width: 19px;
+            height: 20px;
+            vertical-align: bottom;
+            display: inline-block;
+            background-image: url("pcal.png");
+            background-repeat: no-repeat;
+            margin-top: 148px;
+            margin-left:189px;
+            color: #0000CD;
+        }
+
+
+        a.pcalBtn2:hover {
+            box-shadow: 0 0 1px #66CCFF;
+        }
+        a.pcalBtn1 {
+            position: absolute;;
+            width: 19px;
+            height: 20px;
+            vertical-align: bottom;
+            display: inline-block;
+            background-image: url("pcal.png");
+            background-repeat: no-repeat;
+            margin-top: 188px;
+            margin-left: 29px;
+            color: #0000CD;
+        }
+
+
+        a.pcalBtn:hover {
+            box-shadow: 0 0 1px #66CCFF;
+        }
+        input
+        {
+            border: 1px solid #d58512;
+        }
+        #Editbox1,#Editbox2,#Editbox3,#Editbox4,#Editbox5,#Editbox6,#Editbox7,#Editbox12,#Editbox10,#Editbox11,
+        #Editbox13,#Editbox14,#Editbox15,#Editbox16,#Combobox1,#Combobox2,#Combobox3,
+        #Combobox4,#Combobox5,#Combobox6,#Combobox7,#Combobox8,
+        #Editbox9,#Editbox8
+        {
+            border: 1px solid #d58512 !important;
+            height: 23px !important ;
+            font-family: iran !important ;
+
+        }
+        #pdate,#pdate1,#pdate2
+        {
+            border: 1px solid #d58512;
+            height: 30px !important ;
+            font-family: iran !important ;
+            font-size: 19px;
+
+
+        }
+        #Combobox4
+        {
+            border: 1px solid #d58512;
+            height: 33px !important ;
+            font-family: iran !important ;
+            font-size: 20px;
+        }
+        label
+        {
+            font-family: iran !important ;
+            font-size: 17px !important  ;
+        }
+        #kodmeli
+        {
+            color: #0000CD;
+            top: 141px !important ;
+            left: 634px !important ;
+            font-family: iran !important ;
+            font-size: 17px !important  ;
+        }
+    </style>
+    <script>
+
+
+        function reset () {
+
+            alertify.set({
+                labels : {
+                    ok     : "بله",
+                    cancel : "خیر"
+                },
+                delay : 5000,
+                buttonReverse : false,
+                buttonFocus   : "ok"
+            });
+        }
+        var  temproz1=0; var  tare9=''; var  tare11=''; var  tare12='';
+        var tempname1='';var tempnamef='';var tempshsapt='';var maxshsapt='';
+        function melicheck() {
+
+            if($('#Editbox1').val().trim().length==10)
+
+            {
+
+                var meli=$('#Editbox1').val().trim();
+                document.getElementById('loader1').style.display = "block";
+                document.getElementById('overly').style.display = "block";
+                $.post("addcheckmeli.html", //Required URL of the page on server
+                    {
+                        meli: meli,
+                    },
+                    function (response, status) {
+
+                        // Required Callback Function
+
+                        var aa = response.trim();
+
+                        var sapt=aa.split(",");
+                        var n = aa.search("bodvashod_bod");
+                        var n1 = aa.search("nabodvashod_nbod");
+
+
+                        if (n != -1) {
+
+                            $( "input[type=text] " ).show();
+                            $( "label" ).show();
+                            $( "a" ).show();
+                            $( "select" ).show();
+                            $("#Editbox10").attr('disabled', true);
+                            $("#Editbox3").attr('disabled', true);
+                            $("#Editbox13").attr('disabled', true);
+                            document.getElementById("Editbox10").style.backgroundColor="rgb(212, 212, 212)";
+                            document.getElementById("Editbox3").style.backgroundColor="rgb(212, 212, 212)";
+                            document.getElementById("Editbox13").style.backgroundColor="rgb(212, 212, 212)";
+                            document.getElementById('Editbox10').value=sapt[0];
+
+                            document.getElementById('Editbox3').value=sapt[1];
+                            document.getElementById('Editbox13').value=sapt[16];
+                            tempname1=sapt[0];
+                            tempnamef=sapt[1];
+                            tempshsapt=sapt[16];
+                            document.getElementById('Editbox5').value=sapt[4];
+                            document.getElementById('Editbox7').value=sapt[5];
+                            document.getElementById('Editbox9').value=sapt[12];
+                            document.getElementById('Editbox12').value=sapt[15];
+                            $("#RadioButton5").attr('disabled', false);
+                            $("#RadioButton6").attr('disabled', false);
+                            $("#RadioButton7").attr('disabled', false);
+                            document.getElementById("Label11").style.color="#0000CD";
+                            document.getElementById("Label110").style.color="#0000CD";
+                            document.getElementById("Label111").style.color="#0000CD";
+                            if(sapt[3].trim()=="رسمي"  || sapt[3].trim()=="رسمی" )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "1";
+                            }
+                            else  if(sapt[3].trim()=="سرباز"  )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "2";
+                            }
+                            else  if(sapt[3].trim()=="بسیج"  || sapt[3].trim()=="بسيج" )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "3";
+                            }
+                            else  if(sapt[3].trim()=="قراردادی"  || sapt[3].trim()=="قراردادي" )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "4";
+                            }
+
+                            else  if(sapt[3].trim()=="پیمانی"  || sapt[3].trim()=="پيماني" )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "5";
+                            }
+                            else  if(sapt[3].trim()=="آزاد"   )
+                            {
+                                document.getElementById('Combobox4').selectedIndex = "6";
+                                $("#RadioButton5").attr('disabled', true);
+                                $("#RadioButton6").attr('disabled', true); $("#RadioButton7").attr('disabled', true);
+                                document.getElementById("Label11").style.color="#929292";
+                                document.getElementById("Label110").style.color="#929292";
+                                document.getElementById("Label111").style.color="#929292";
+                                $("#RadioButton5").prop("checked", false);
+                                $("#RadioButton6").prop("checked", false);
+                                $("#RadioButton7").prop("checked", false);
+                            }
+                            if(sapt[13].trim()=="1"  )
+                            {
+                                $("#RadioButton5").prop("checked", true);
+                            }
+                            else if(sapt[13].trim()=="2"  )
+                            {
+                                $("#RadioButton6").prop("checked", true);
+                            }
+                            else if(sapt[13].trim()=="3"  )
+                            {
+                                $("#RadioButton7").prop("checked", true);
+                            }
+
+                            temproz1=parseInt(sapt[8])+parseInt(sapt[9]);
+                            // $("#dd").html(response);
+                            /*$("#kolkol").text(sapt[16]);
+                             $("#kolsepah").text(sapt[17]);
+                              $("#kolentzami").text(sapt[18]);
+                               $("#kolartesh").text(sapt[19]);
+                                $("#kolazad").text(sapt[20]);*/
+                            document.getElementById('loader1').style.display = "none";
+                            document.getElementById('overly').style.display = "none";
+                        }
+                        else if(n1 != -1)
+                        {
+                            tempname1='';
+                            tempnamef='';
+                            tempshsapt='';
+                            $("#Editbox10").attr('disabled', false);
+                            $("#Editbox13").attr('disabled', false);
+                            $("#Editbox3").attr('disabled', false);
+
+                            document.getElementById('Editbox13').value=parseInt(sapt[0])+1;
+                            document.getElementById("Editbox10").style.backgroundColor="rgb(255, 255, 255)";
+                            document.getElementById("Editbox3").style.backgroundColor="rgb(255, 255, 255)";
+                            document.getElementById("Editbox13").style.backgroundColor="rgb(255, 255, 255)";
+                            $( "input[type=text] " ).show();
+                            $( "label" ).show();
+                            $( "a" ).show();
+                            $( "select" ).show();
+                            $("#RadioButton1").prop("checked", false);
+                            $("#RadioButton2").prop("checked", false);
+                            $("#checkda").prop("checked", false);
+                            $("#checkkh").prop("checked", false);
+                            $("#RadioButton5").prop("checked", false);$("#RadioButton6").prop("checked", false);
+                            $("#RadioButton7").prop("checked", false);
+                            $( "#Editbox10" ).val(''); $( "#Editbox3" ).val('');$( "#Editbox5" ).val('');
+                            $( "#Editbox7" ).val(''); $( "#Editbox8" ).val(''); $( "#Editbox11" ).val('');
+                            $( "#Editbox12" ).val('');$( "#Editbox9" ).val('');
+                            $( "#pdate" ).val(''); $( "#pdate1" ).val(''); $( "#pdate2" ).val('');
+                            $( "#tedadroz" ).text('');
+                            $( "#pdate" ).val('');document.getElementById('Combobox4').selectedIndex = "0";
+                            document.getElementById('loader1').style.display = "none";
+                            document.getElementById('overly').style.display = "none";
+                        }
+
+
+                    });
+            }
+            else
+            {
+                $( "input[type=text] " ).hide();
+                $( "label" ).hide();
+                $( "a" ).hide();
+                $( "select" ).hide();
+                $( "#Editbox1" ).show();
+                $( "#kodmeli" ).show();
+            }
+
+
+        }
+
+
+        $(document).ready(function () {
+
+
+             var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox5").autocomplete(AutoComplete2Options);
+
+             var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox7").autocomplete(AutoComplete2Options);
+
+             var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox9").autocomplete(AutoComplete2Options);
+
+             var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox10").autocomplete(AutoComplete2Options);
+
+
+          var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox3").autocomplete(AutoComplete2Options);
+            var AutoComplete2Data = [];
+            var AutoComplete2Options =
+                {
+                    source: AutoComplete2Data,
+                    delay: 0,
+                    minLength: 1
+                };
+            $("#Editbox12").autocomplete(AutoComplete2Options);
+
+
+
+
+
+
+
+
+            var tempsazman=0;
+            $( "input[type=text] " ).hide();
+            $( "label" ).hide();
+            $( "a" ).hide();
+            $( "select" ).hide();
+
+            $( "#Editbox1" ).show();
+            $( "#kodmeli" ).show();
+            $('#Combobox4').change(function () {
+                if($('#Combobox4').val()=="آزاد")
+                {
+                    tempsazman=0;
+                    $("#RadioButton5").attr('disabled', true);
+                    $("#RadioButton6").attr('disabled', true);
+                    $("#RadioButton7").attr('disabled', true);
+                    $("#RadioButton5").prop("checked", false);
+                    $("#RadioButton6").prop("checked", false);
+                    $("#RadioButton7").prop("checked", false);
+
+                    document.getElementById("Label11").style.color="#929292";
+                    document.getElementById("Label110").style.color="#929292";
+                    document.getElementById("Label111").style.color="#929292";
+                }
+                else
+                {
+                    tempsazman=1;
+                    $("#RadioButton5").attr('disabled', false);
+                    $("#RadioButton6").attr('disabled', false);
+                    $("#RadioButton7").attr('disabled', false);
+                    document.getElementById("Label11").style.color="#0000CD";
+                    document.getElementById("Label110").style.color="#0000CD";
+                    document.getElementById("Label111").style.color="#0000CD";
+
+
+                }
+            });
+            $('#Button1').click(function () {
+
+                var bestari=2;var noestrahat='';var sazman='';var tedadn='';var tedadsh='';var noestrahatkh=''
+
+                var meli= $( "#Editbox1" ).val().trim(); var name1= $( "#Editbox10" ).val().trim();
+                var namef= $( "#Editbox3" ).val().trim(); var mahalkh= $( "#Editbox5" ).val().trim();
+                var nobimari= $( "#Editbox7" ).val().trim();  tedadsh= $( "#Editbox8" ).val().trim();
+                tedadn= $( "#Editbox11" ).val().trim(); var doktor= $( "#Editbox12" ).val().trim();
+                toz= $( "#Editbox9" ).val().trim(); var shsapt= $( "#Editbox13" ).val();
+                var ozviat= $( "#Combobox4" ).val().trim();
+                if(tempname1!='' )
+                {
+                    name1= tempname1;
+                }
+                if(tempnamef!='' )
+                {
+                    namef= tempnamef;
+                }
+                if(tempshsapt!='' )
+                {
+                    shsapt= tempshsapt;
+                }
+                if(tedadsh.trim()=="")
+                {
+                    tedadsh=0;
+                }
+
+                if(tedadn.trim()=="")
+                {
+                    tedadn=0;
+                }
+                if($("#RadioButton1").prop("checked")==true)
+                {
+                    bestari=1;
+                }
+                else if($("#RadioButton2").prop("checked")==true)
+                {
+                    bestari=0;
+                }
+                else
+                {
+                    bestari=2;
+                }
+
+                if($("#checkda").prop("checked")==true)
+                {
+                    noestrahat="داخل";
+                }
+                else
+                {
+                    noestrahat="";
+                }
+                if($("#checkkh").prop("checked")==true)
+                {
+                    noestrahatkh="خارج";
+                }
+                else
+                {
+                    noestrahatkh="";
+                }
+                if($("#RadioButton5").prop("checked")==true)
+                {
+                    sazman="1";
+                }
+                else if($("#RadioButton6").prop("checked")==true)
+                {
+                    sazman="2";
+                }
+                else if($("#RadioButton7").prop("checked")==true)
+                {
+                    sazman="3";
+                }
+                else
+                {
+                    sazman="0";
+                }
+                var mah = 0;
+                var roz = 0;
+                tare9 = $("#pdate").val().trim();
+                tare11 = $("#pdate1").val().trim();
+                tare12 = $("#pdate2").val().trim();
+                if (tare9.indexOf('/', 5) == 6) {
+                    mah = '0' + tare9.substr(5, 1);
+                    if (tare9.substr(7, 2).length == 1) {
+                        roz = '0' + tare9.substr(7, 1);
+                    }
+                    else {
+                        roz = tare9.substr(7, 2);
+                    }
+                }
+                else if (tare9.indexOf('/', 5) == 7) {
+                    mah = tare9.substr(5, 2);
+                    if (tare9.substr(8, 2).length == 1) {
+                        roz = '0' + tare9.substr(8, 1);
+                    }
+                    else {
+                        roz = tare9.substr(8, 2);
+                    }
+                }
+                tare9 = tare9.substr(0, 4)  + mah + roz;
+
+                if (tare11.indexOf('/', 5) == 6) {
+                    mah = '0' + tare11.substr(5, 1);
+                    if (tare11.substr(7, 2).length == 1) {
+                        roz = '0' + tare11.substr(7, 1);
+                    }
+                    else {
+                        roz = tare11.substr(7, 2);
+                    }
+                }
+                else if (tare11.indexOf('/', 5) == 7) {
+                    mah = tare11.substr(5, 2);
+                    if (tare11.substr(8, 2).length == 1) {
+                        roz = '0' + tare11.substr(8, 1);
+                    }
+                    else {
+                        roz = tare11.substr(8, 2);
+                    }
+                }
+                tare11 = tare11.substr(0, 4)  + mah  + roz;
+
+                if (tare12.indexOf('/', 5) == 6) {
+                    mah = '0' + tare12.substr(5, 1);
+                    if (tare12.substr(7, 2).length == 1) {
+                        roz = '0' + tare12.substr(7, 1);
+                    }
+                    else {
+                        roz = tare12.substr(7, 2);
+                    }
+                }
+                else if (tare12.indexOf('/', 5) == 7) {
+                    mah = tare12.substr(5, 2);
+                    if (tare12.substr(8, 2).length == 1) {
+                        roz = '0' + tare12.substr(8, 1);
+                    }
+                    else {
+                        roz = tare12.substr(8, 2);
+                    }
+                }
+                tare12 = tare12.substr(0, 4)  + mah  + roz;
+
+                if(meli.length!=10)
+                {
+                    reset();
+                    alertify.alert("فردی را انتخاب نکرده اید<br><br>");
+                    return false;
+                }
+
+                else if(name1.length<7)
+                {
+                    reset();
+                    alertify.alert("نام ونام خانوادگی را درست وارد نمایید<br><br>");
+                    return false;
+
+                }
+                else if(namef.length<3)
+                {
+                    reset();
+                    alertify.alert("نام پدر را درست وارد نمایید<br><br>");
+                    return false;
+
+                }
+                else if(ozviat.length<4)
+                {
+                    reset();
+                    alertify.alert("عضویت فرد مشخص نشده است<br><br>");
+                    return false;
+
+                }
+                else if( tempsazman==1 && sazman=="0" )
+                {
+                    reset();
+                    alertify.alert("نوع عضویت از لحاظ سازمان انتخاب نشده است<br><br>");
+                    return false;
+
+                }
+                else if(mahalkh.length<5)
+                {
+                    reset();
+                    alertify.alert("محل خدمت فرد مشخص نکرده اید<br><br>");
+                    return false;
+
+                }
+                else if(nobimari.length<2)
+                {
+                    reset();
+                    alertify.alert("نوع بیماری فرد مشخص نیست<br><br>");
+                    return false;
+
+                }
+                else if( bestari==2 )
+                {
+                    reset();
+                    alertify.alert("وضعیت بیمار انتخاب نشده است<br><br>");
+                    return false;
+
+                }
+                else if( noestrahat==""  && noestrahatkh=="")
+                {
+                    reset();
+                    alertify.alert("نوع استراحت مشخص نشده است<br><br>");
+                    return false;
+
+                }
+                else if( tare9.length<8 || tare11.length<8 || tare12.length<8)
+                {
+                    reset();
+                    alertify.alert("تاریخ اشتباه می باشد<br><br>");
+                    return false;
+
+                }
+                else if( tare9>tare11)
+                {
+                    reset();
+                    alertify.alert("تاریخ استراحت اشتباه وارد کرده اید<br><br>");
+                    return false;
+
+                }
+                else if(  $("#pdate").css("background-color")=='rgb(255, 0, 0)'
+                    ||   $("#pdate1").css("background-color")=='rgb(255, 0, 0)'
+                    ||  $("#pdate2").css("background-color")=='rgb(255, 0, 0)')
+                {
+                    reset();
+                    alertify.alert("در ورود تاریخ اشتباه رخ داده است<br><br>");
+                    return false;
+
+                }
+                else if( isNaN(tedadsh.length)==true)
+                {
+                    reset();
+                    alertify.alert("تعداد روز استراحت تایید شده وارد نشده است<br><br>");
+                    return false;
+
+                }
+                else if( isNaN(tedadn.length)==true)
+                {
+                    reset();
+                    alertify.alert("تعداد روز استراحت تایید نشده وارد نشده است<br><br>");
+                    return false;
+
+                }
+                else if(temproz1!=(parseInt($("#Editbox8").val())-parseInt($("#Editbox11").val())))
+                {
+                    reset();
+                    alertify.alert("در تعداد روزهای استراحت اشتباهی عمدی صورت گرفته است<br><br>");
+                    return false;
+
+                }
+                else if($("#Editbox12").val().length<7)
+                {
+                    reset();
+                    alertify.alert("پزشک معالج را وارد نکرده اید<br><br>");
+                    return false;
+                }
+                else if($("#Editbox13").val().length<1)
+                {
+                    reset();
+                    alertify.alert("شماره ثبت وارد نکرده اید<br><br>");
+                    return false;
+                }
+                else
+                {
+
+
+
+
+
+
+
+
+                    reset();
+                    alertify.confirm("آیا مطمئن به ثبت اطلاعات هستید؟<br><br>", function (e) {
+                        if (e) {
+                            document.getElementById('loader1').style.display = "block";
+                            document.getElementById('overly').style.display = "block";
+                            $.post("saptqu.html", //Required URL of the page on server
+                                {
+                                    meli: meli,  name1: name1, namef: namef,  mahalkh: mahalkh,
+                                    nobimari: nobimari,  tedadsh: tedadsh,  tedadn: tedadn,  toz: toz, doktor: doktor,
+                                    tarmor:tare12,  taraz: tare9,  tarta: tare11,  bestari: bestari,
+                                    noestrahat: noestrahat,  sazman: sazman,  ozviat: ozviat,noestrahatkh: noestrahatkh,
+                                    shsapt: shsapt,
+                                },
+                                function (response, status) { // Required Callback Function
+                                    var aa = response.trim();
+                                    var sapt=aa.split(",");
+                                    var n = aa.search("saptshod_shod");
+                                    var n1 = aa.search("tekrar");
+                                    //console.log(response);
+                                    if(n!=-1)
+                                    {
+
+                                        $( "#Editbox10" ).val('');  $( "#Editbox13" ).val('');$( "#Editbox3" ).val(''); $( "#Editbox5" ).val('');
+                                        $( "#Editbox7" ).val(''); $( "#Editbox8" ).val(''); $( "#Editbox11" ).val('');
+                                        $( "#Editbox12" ).val(''); $( "#Editbox1" ).val('');
+                                        $( "#pdate" ).val(''); $( "#pdate1" ).val(''); $( "#pdate2" ).val('');
+                                        $( "#tedadroz" ).text('');$( "#Editbox9" ).val('');
+                                        $("#RadioButton5").prop('checked', false); $("#RadioButton6").prop('checked', false);
+                                        $("#RadioButton1").prop('checked', false); $("#RadioButton2").prop('checked', false);
+                                        $("#RadioButton7").prop('checked', false);$("#checkda").prop("checked", false);
+                                        $("#checkkh").prop("checked", false);
+                                        $("#Editbox10").attr('disabled', false);
+                                        $("#Editbox3").attr('disabled', false);
+                                        $("#Editbox13").attr('disabled', false);
+                                        document.getElementById("Editbox10").style.backgroundColor="rgb(255, 255, 255)";
+                                        document.getElementById("Editbox3").style.backgroundColor="rgb(255, 255, 255)";
+                                        document.getElementById("Editbox13").style.backgroundColor="rgb(255, 255, 255)";
+                                        $( "#pdate" ).val('');document.getElementById('Combobox4').selectedIndex = "0";
+                                        document.getElementById('loader1').style.display = "none";
+                                        document.getElementById('overly').style.display = "none";
+
+                                        reset();
+                                        alertify.alert("اطلاعات با موفقیت ثبت گردید<br><br>");
+
+                                        return false;
+                                    }
+                                    else if(n1!=-1)
+                                    {
+                                        document.getElementById('loader1').style.display = "none";
+                                        document.getElementById('overly').style.display = "none";
+                                        reset();
+                                        alertify.alert("قبلا این اطلاعات ثبت  گردیده است<br><br>\n\
+                تاریخ  های استراحت و یا شماره ثبت را درست وارد نمایید");
+                                        return false;
+
+                                    }
+                                });
+                        }
+
+                    });
+
+
+
+                }
+
+
+
+
+            });
+            $("#Editbox8").keyup(function(){
+                if(temproz1>0 && $("#Editbox8").val().trim().length>0 && parseInt($("#Editbox8").val())>=temproz1)
+                {
+                    /*   var checkmanfi= temproz1- parseInt($("#Editbox8").val());
+                       if (checkmanfi<0)
+                       {
+                                       reset();
+                                    alertify.alert("تعداد روز استراحت اشتباه وارد نموده اید<br><br>");
+
+                                  $("#Editbox8").val('') ;
+                               $("#Editbox11").val('');
+                                 return false;
+
+                       }
+                       else
+                       {*/
+                    $("#Editbox11").val(parseInt($("#Editbox8").val())-temproz1) ;
+                }
+
+                else
+                {
+                    $("#Editbox11").val('');
+                }
+
+            });
+            /* $("#Editbox11").keyup(function(){
+                if(temproz1>0 && $("#Editbox11").val().trim().length>0 )
+                 {
+                  var checkmanfi= temproz1- parseInt($("#Editbox11").val());
+                  if (checkmanfi<0)
+                  {
+                                      reset();
+                               alertify.alert("تعداد روز استراحت اشتباه وارد نموده اید<br><br>");
+
+
+                         $("#Editbox8").val('') ;
+                          $("#Editbox11").val('');
+                            return false;
+
+                  }
+                  else
+                  {
+                     $("#Editbox8").val(checkmanfi) ;
+                  }
+                 }
+                  else
+                 {
+                     $("#Editbox8").val('');
+                 }
+
+               });*/
+        });
+
+    </script>
+
+    <style>
+        #loader1 {
+
+            position: absolute;
+            border: 160px solid #000000;
+            border-radius: 50%;
+            border-top: 10px solid blue;
+            border-left: 10px solid sandybrown;
+            border-right: 10px solid green;
+            border-bottom: 10px solid red;
+            width: 70px;
+
+            height: 70px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div id="container">
+
+    <img src="image/1430748_476.jpg" id="Banner1" alt=" " style="border-width:0;position:absolute;left:99px;top:2px;width:772px;
+    border-bottom: 1px solid #00e2ff; height:109px;z-index:100;">
+
+    <div id="wb_Form1" style="position:absolute;left:98px;top:0px;width:772px;height:710px;z-index:78;background-color: #e2e2e1;
+border: 1px solid #00e2ff;">
+
+        <div  id="loader1" style="position: absolute;left: 311px;top: 273px;z-index: 105;display: none;"></div>
+        <img  id="overly" style="position: absolute;width: 100%;height: 100%;background-color: rgba(25, 25, 25, 0.5);
+    ;z-index: 100;display: none;">
+
+        <form name="cheshm" method="post" action=""  style="" enctype="text/plain" accept-charset="UTF-8" id="Form1">
+            <div  id="dd" style="z-index: 999;"></div>
+            <label for="" id="kodmeli" style="position:absolute;left:629px;
+top:136px;width:107px;height:22px;line-height:22px;z-index:0;">:کدملی</label>
+            <label for="" id="Label3" style="position:absolute;left:629px;top:216px;
+       width:107px;height:22px;line-height:22px;z-index:1;">:نام پدر</label>
+            <label for="" id="Label6" style="position:absolute;left:296px;top:180px;width:107px;height:22px;line-height:22px;
+       z-index:4;">:استراحت از تاریخ</label>
+
+
+            <label for="" id="Label6" style="position:absolute;left:135px;top:180px;width:50px;height:22px;line-height:22px;
+       z-index:4;">:تا تاریخ</label>
+            <label for="" id="Label12" style="position:absolute;left:629px;top:502px;width:107px;height:22px;line-height:22px;z-index:10;">:وضعیت بیمار</label>
+            <label for="" id="Label12" style="position:absolute;left:629px;top:530px;width:107px;height:22px;line-height:22px;z-index:11;">:نوع استراحت</label>
+            <label for="" id="Label19" style="position:absolute;left:296px;top:315px;width:107px;height:22px;
+       line-height:22px;z-index:18;">:پزشک تایید کننده</label>
+            <label for="" id="Label19" style="position:absolute;left:296px;top:354px;width:107px;height:22px;
+       line-height:22px;z-index:18;">:شماره ثبت</label>
+
+
+
+
+
+
+            <label for="" id="Label3" style="position:absolute;left:629px;top:255px;width:107px;height:22px;line-height:22px;z-index:1;">:نوع عضویت</label>
+            <label for="" id="Label3" style="position:absolute;left:629px;top:407px;width:107px;height:22px;line-height:22px;z-index:1;">:محل خدمت</label>
+            <label for="" id="Label3" style="position:absolute;left:296px;top:265px;width:107px;height:22px;line-height:22px;z-index:1;">:پزشک معالج</label>
+            <label for="" id="Label3" style="position:absolute;left:629px;top:446px;width:107px;height:22px;line-height:22px;z-index:1;">:نوع بیماری</label>
+
+            <label name="sazm" id="Label11" style="position:absolute;left:544px;top:294px;width:107px;height:22px;line-height:22px;z-index:10;">:سپاه</label>
+            <label name="sazm"  id="Label110" style="position:absolute;left:548px;top:334px;
+       width:107px;height:22px;line-height:22px;z-index:10;color: #0000CD;">:نیروی انتظامی</label>
+            <label name="sazm" id="Label111" style="position:absolute;
+        left:548px;top:370px;width:107px;height:22px;line-height:22px;z-index:10;color: #0000CD;">:ارتش</label>
+
+            <label for="" id="Label1" style="position:absolute;left:296px;top:222px;width:107px;
+       height:22px;line-height:22px;z-index:26;" >:استراحت به روز</label>
+
+            <label for="" id="Label1" style="position:absolute;left:219px;top:222px;width:107px;height:22px;
+        line-height:22px;z-index:0;color: #ff4804;">:کل استراحت </label>
+
+            <label for="" id="Label1" style="position:absolute;left:105px;top:222px;width:60px;height:22px;
+        line-height:22px;z-index:0;color: #ff4804;">:تایید نشده</label>
+            <label  for="" id="tedadroz" style="position:absolute;left:2px;top:229px;width:60px;height:22px;
+        line-height:22px;z-index:0;color: #ff4804;text-align: center;direction: rtl !important;
+        font-size: 15px  !important;font-family: hasan !important;;"></label>
+
+
+            <script>
+
+                function isNumberKey(evt)
+                {
+                    var charCode = (evt.which) ? evt.which : event.keyCode
+                    if (charCode > 31 && (charCode < 45 || charCode > 57 ||  charCode == 47) )
+                        return false;
+
+                    return true;
+                }
+            </script>
+
+
+
+            <label for="" id="Label27"style="position:absolute;left:296px;top:139px;width:107px;height:22px;
+        line-height:22px;z-index:0;">:تاریخ مراجعه</label>
+
+
+            <input type="text" id="Editbox3"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Combobox4').focus()};"
+                   style="position:absolute;left:482px;top:217px;width:137px;height:16px;line-height:16px;z-index:29;direction: rtl;"
+                   name="namef" value="" maxlength="30" autocomplete="off" spellcheck="false">
+            <input type="text" id="Editbox1"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox10').focus()};"
+                   onchange=" if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');"
+                   onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');melicheck();"
+                   style="position:absolute;left:512px;top:141px;width:107px;
+       height:16px;line-height:16px;z-index:27;text-align: left;"
+
+                   name="meli" value="" maxlength="10" autocomplete="off" spellcheck="false">
+            <input type="text" id="Editbox5"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox7').focus()};"
+                   style="position:absolute;text-align: left;left:389px;text-align: right;direction: rtl;
+       top:409px;width:230px;height:16px;line-height:16px;
+       z-index:31;" name="sh" value="" maxlength="100" autocomplete="off" spellcheck="false">
+            <input type="text" id="Editbox12"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox9').focus()};"
+                   style="position:absolute;text-align: left;left:57px;text-align: right;direction: rtl;
+       top:266px;width:230px;height:16px;line-height:16px;
+       z-index:31;" name="sh" value="" maxlength="100" autocomplete="off" spellcheck="false">
+            <input type="text" id="Editbox7"
+                   onkeydown="if(event.keyCode==13){document.getElementById('RadioButton1').focus()};"
+                   style="position:absolute;text-align: left;text-align: right;direction: rtl;
+       left:389px;top:448px;width:230px;height:16px;line-height:16px;
+       z-index:31;" name="sh" value="" maxlength="100" autocomplete="off" spellcheck="false">
+
+            <select name="sasa" size="1"  dir="rtl" id="Combobox4"
+                    onkeydown="if(event.keyCode==13){document.getElementById('RadioButton5').focus()};"
+                    style="position:absolute;left:512px;top:257px;width:115px;height:28px;z-index:38;">
+                <option value=""></option>
+                <option value="رسمی">رسمی</option>
+                <option value="سرباز">سرباز</option>
+                <option value="بسیج">بسیج</option>
+                <option value="قراردادی">قراردادی</option>
+                <option value="پیمانی">پیمانی</option>
+                <option value="آزاد">آزاد</option>
+            </select>
+            <style>
+                /* The container */
+                .container {
+                    display: block;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                /* Hide the browser's default checkbox */
+                .container input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                }
+
+                /* Create a custom checkbox */
+                .checkmark {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 22px;
+                    width: 22px;
+                    background-color: #fff;
+                    border-radius: 4px;
+                    border: 1px solid #0000CD;
+
+                }
+
+
+                /* On mouse-over, add a grey background color */
+                .container:hover input ~ .checkmark {
+                    background-color: #fff;
+                }
+
+                /* When the checkbox is checked, add a blue background */
+                .container input:checked ~ .checkmark {
+                    background-color: #2196F3;
+
+                }
+
+                /* Create the checkmark/indicator (hidden when not checked) */
+                .checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+
+                }
+
+                /* Show the checkmark when checked */
+                .container input:checked ~ .checkmark:after {
+                    display: block;
+                }
+
+                /* Style the checkmark/indicator */
+                .container .checkmark:after {
+                    left: 9px;
+                    top: 5px;
+                    width: 5px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            </style>
+            <input type="text"  id="Editbox9"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox13').focus()};"
+                   style="position:absolute;left:57px;top:316px;width:230px;
+       height:16px;line-height:16px;z-index:44;direction: rtl;
+       direction: rtl;" name="adres"
+                   autocomplete="off" maxlength="100" spellcheck="false">
+            <input type="text"  id="Editbox13"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Button1').focus()};"
+                   onchange=" if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');"
+                   onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');"
+                   style="position:absolute;left:186px;top:355px;width:100px;
+       height:16px;line-height:16px;z-index:44;text-align: left;
+       direction: ltr;" name="shsapt"
+                   autocomplete="off" maxlength="10" spellcheck="false">
+            <div id="wb_RadioButton1"
+                 style="position:absolute;left:544px;top:498px;width:61px;height:20px;z-index:46;">
+                <input type="radio"  id="RadioButton1"
+                       onkeydown="if(event.keyCode==13){document.getElementById('RadioButton2').focus()};"
+                       name="sl" value="onvvv"
+
+                       style="position:absolute;left:0;top:20px;">
+                <label style="position: absolute;top: 10px;" for="RadioButton1"></label></div>
+
+            <div id="wb_RadioButton5"  style="position:absolute;left:523px;top:291px;width:61px;height:20px;z-index:46;">
+                <input type="radio"  id="RadioButton5"
+                       onkeydown="if(event.keyCode==13){document.getElementById('RadioButton6').focus()};"
+                       name="z2" value="onvvv" style="position:absolute;left:0;top:20px;">
+                <label style="position: absolute;top: 10px;" for="RadioButton5"></label></div>
+            <div id="wb_RadioButton6"  style="position:absolute;left:523px;top:328px;width:61px;height:20px;z-index:46;">
+                <input type="radio"  id="RadioButton6"
+                       onkeydown="if(event.keyCode==13){document.getElementById('RadioButton7').focus()};"
+                       name="z2" value="onvvv" style="position:absolute;left:0;top:20px;">
+                <label style="position: absolute;top: 10px;" for="RadioButton6"></label></div>
+            <div id="wb_RadioButton7"
+                 style="position:absolute;
+          left:523px;top:363px;width:61px;height:20px;z-index:46;">
+                <input type="radio"
+                       onkeydown="if(event.keyCode==13){document.getElementById('Editbox5').focus()};"
+                       id="RadioButton7" name="z2" value="onvvv"
+                       style="position:absolute;left:0;top:20px;">
+                <label style="position: absolute;top: 10px;" for="RadioButton7"></label></div>
+
+
+            <label for="" id="Label30" style="position:absolute;left:566px;top:502px;width:24px;
+       height:22px;line-height:22px;z-index:47;text-align: left;">بستری</label>
+            <label for="" id="Label31" style="position:absolute;left:463px;top:502px;width:24px;
+       height:22px;line-height:22px;z-index:48;text-align: left;">سرپاپی</label>
+            <div id="wb_RadioButton2" style="position:absolute;left:442px;top:498px;width:47px;height:20px;z-index:49;">
+                <input type="radio" id="RadioButton2"
+                       onkeydown="if(event.keyCode==13){document.getElementById('checkda').focus()};"
+                       name="sl" value="onvvv" style="position:absolute;left:0;top:0;"><label style="position: absolute;top: 10px;" for="RadioButton2"></label></div>
+
+            <div style="position:absolute;left:541px;top:536px;width:45px;height:20px;z-index:50;">
+                <label class="container">
+                    <input id="checkda"onkeydown="if(event.keyCode==13){document.getElementById('checkkh').focus()};"
+                           type="checkbox">
+                    <span  class="checkmark"></span>
+                </label></div>
+
+            <label for="" id="Label32" style="position:absolute;
+       left:566px;top:531px;width:70px;height:22px;line-height:22px;z-index:51;text-align: left;">محل کار</label>
+            <label for="" id="Label32" style="position:absolute;
+       left:463px;top:531px;width:75px;height:22px;line-height:22px;z-index:51;text-align: left;">خارج محل کار</label>
+
+            <div   style="position:absolute;left:438px;top:536px;width:37px;height:20px;z-index:52;">
+                <label class="container">
+                    <input id="checkkh"
+                           onkeydown="if(event.keyCode==13){document.getElementById('pdate2').focus()};" type="checkbox">
+                    <span  class="checkmark"></span>
+                </label>
+            </div>
+
+            <input type="text" id="Editbox10"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox3').focus()};"
+                   style="position:absolute;left:412px;top:179px;width:207px;height:16px;text-align: right;direction: rtl;
+       line-height:16px;z-index:70;" name="namekh"  maxlength="70" autocomplete="off" spellcheck="false">
+
+            <input type="text" id="Editbox8"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox12').focus()};"
+                   onchange=" if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');"
+                   onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
+                   style="position:absolute;left:171px;top:224px;width:40px;height:16px;
+       line-height:16px;z-index:70;text-align: center;"
+                   name="namekh" value="" maxlength="3" autocomplete="off" spellcheck="false">
+            <input type="text" id="Editbox11" disabled="disabled"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox12').focus()};"
+                   onchange=" if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'');"
+                   onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"
+                   style="position:absolute;left:55px;top:224px;width:40px;height:16px;
+       line-height:16px;z-index:70;text-align: center;" name="namekh" value="" maxlength="3" autocomplete="off" spellcheck="false">
+
+
+            <label for="" id="Label2" style="position:absolute;left:629px;top:178px;
+       width:107px;height:22px;line-height:22px;z-index:71;">:نام ونام خانوادگی</label>
+            <input type="text"  id="pdate1"placeholder="----/--/--" dir="ltr"
+                   onkeydown="if(event.keyCode==13){document.getElementById('Editbox8').focus()};"
+                   style="position:absolute;left:50px;top:180px;width:85px;height:22px;z-index:10;border-radius: 4px;
+       font-family: hasan;color: #0000CD;"
+                   name="pdate1" value="" maxlength="10" autocomplete="off" spellcheck="false">
+
+            <input type="text"  id="pdate2"placeholder="----/--/--" dir="ltr"
+                   onkeydown="if(event.keyCode==13){document.getElementById('pdate').focus()};"
+                   style="position:absolute;left:210px;top:140px;width:85px;height:22px;z-index:10;border-radius: 4px;
+       font-family: hasan;color: #0000CD;"
+                   name="pdate2" value="" maxlength="10" autocomplete="off" spellcheck="false">
+
+
+            <input  placeholder="----/--/--"
+                    onkeydown="if(event.keyCode==13){document.getElementById('pdate1').focus()};"
+                    type="text" class="pdate" id="pdate" dir="ltr"
+                    style="position:absolute;left:211px;top:180px;width:85px;line-height:22px;z-index:99;
+       border-radius: 4px;text-align:left; "
+                    name="pdate" value="" maxlength="10" autocomplete="off" >
+
+            <input type="button" id="Button1" name="sapt" value="ثبت"
+                   style="position:absolute;left:43px;top:640px;width:70px;height:36px;z-index:75;">
+            <input type="button" id="Button2" name="baz" onclick="window.location.href= 'asli.html';" value="بازگشت"
+                   style="position:absolute;left:132px;top:640px;width:70px;height:36px;z-index:76;">
+
+        </form>
+
+        <div id="PageFooter1" style="position: absolute; margin-left: 0px;text-align:left;left:1px;top:100.5%;width:99.5%;
+  height:20px;z-index:1;font-family: naz;font-size: 15px;
+  color: #0000FF; box-shadow: 10px 7px 15px #888888;text-align: center;background:#e6e6fa;border: 1px;border-style: solid;
+border-color: #ff4804;">
+            برنامه نویس : حسن کشتمند --   تلفن همراه: 09189964931
+        </div>
+
+    </div>
+
+    <div id="wb_Text1" style="position:absolute;left:388px;top:25px;width:220px;height:16px;z-index:108;text-align:left;">
+        <span style="color:#000000;font-size:60px;font-family:'IranNastaliq';
+        color: #0000FF;">ثبت استراحت پزشکی </span></div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    new AMIB.persianCalendar( 'pdate', {
+            onchange: function( pdate ){
+                if( pdate ) {
+                    var mah = 0;
+                    var roz = 0;
+                    tare9 = $("#pdate").val().trim();
+                    tare11 = $("#pdate1").val().trim();
+                    tare12 = $("#pdate2").val().trim();
+                    if (tare9.indexOf('/', 5) == 6) {
+                        mah = '0' + tare9.substr(5, 1);
+                        if (tare9.substr(7, 2).length == 1) {
+                            roz = '0' + tare9.substr(7, 1);
+                        }
+                        else {
+                            roz = tare9.substr(7, 2);
+                        }
+                    }
+                    else if (tare9.indexOf('/', 5) == 7) {
+                        mah = tare9.substr(5, 2);
+                        if (tare9.substr(8, 2).length == 1) {
+                            roz = '0' + tare9.substr(8, 1);
+                        }
+                        else {
+                            roz = tare9.substr(8, 2);
+                        }
+                    }
+                    tare9 = tare9.substr(0, 4)  + mah + roz;
+
+                    if (tare11.indexOf('/', 5) == 6) {
+                        mah = '0' + tare11.substr(5, 1);
+                        if (tare11.substr(7, 2).length == 1) {
+                            roz = '0' + tare11.substr(7, 1);
+                        }
+                        else {
+                            roz = tare11.substr(7, 2);
+                        }
+                    }
+                    else if (tare11.indexOf('/', 5) == 7) {
+                        mah = tare11.substr(5, 2);
+                        if (tare11.substr(8, 2).length == 1) {
+                            roz = '0' + tare11.substr(8, 1);
+                        }
+                        else {
+                            roz = tare11.substr(8, 2);
+                        }
+                    }
+                    tare11 = tare11.substr(0, 4)  + mah  + roz;
+                    if( tare9>tare11 && tare11.length>7 )
+                    {
+                        reset();
+                        alertify.alert("تاریخ استراحت اشتباه وارد کرده اید<br><br>");
+                        return false;
+                        $("#pdate").val('');
+                        $("#tedadroz").text('');
+                        $("#Editbox11").val('');
+                        $("#Editbox8").val('');
+
+                    }
+
+                    var tarsh1 =$("#pdate").val().trim().length;
+                    var tarp1 = $("#pdate1").val().trim().length;
+                    var tedad = $("#tedadroz").text().trim().length;
+                    var tarsh =$("#pdate").val().trim();
+                    var tarp = $("#pdate1").val().trim();
+                    var mah = 0;
+                    var roz = 0;
+                    if ($("#pdate").val().trim().length > 7 && $("#pdate1").val().trim().length > 7) {
+                        $("#tedadroz").text('');
+                        $("#Editbox11").val('');
+                        $("#Editbox8").val('');
+                        if (tarsh.indexOf('/', 5) == 6) {
+
+                            mah = '0' + tarsh.substr(5, 1);
+                            if (tarsh.substr(7, 2).length == 1) {
+                                roz = '0' + tarsh.substr(7, 1);
+                            }
+                            else {
+                                roz = tarsh.substr(7, 2);
+                            }
+                        }
+                        else if (tarsh.indexOf('/', 5) == 7) {
+
+                            mah = tarsh.substr(5, 2);
+                            if (tarsh.substr(8, 2).length == 1) {
+                                roz = '0' + tarsh.substr(8, 1);
+                            }
+                            else {
+                                roz = tarsh.substr(8, 2);
+                            }
+                        }
+                        tarsh = tarsh.substr(0, 4) + '/' + mah + '/' + roz;
+                        tarsh2_1 = tarsh.substr(0, 4) + mah + roz;
+
+                        if (tarp.indexOf('/', 5) == 6) {
+                            mah = '0' + tarp.substr(5, 1);
+                            if (tarp.substr(7, 2).length == 1) {
+                                roz = '0' + tarp.substr(7, 1);
+                            }
+                            else {
+                                roz = tarp.substr(7, 2);
+                            }
+                        }
+                        else if (tarp.indexOf('/', 5) == 7) {
+                            mah = tarp.substr(5, 2);
+                            if (tarp.substr(8, 2).length == 1) {
+                                roz = '0' + tarp.substr(8, 1);
+                            }
+                            else {
+                                roz = tarp.substr(8, 2);
+                            }
+                        }
+                        tarp = tarp.substr(0, 4) + '/' + mah + '/' + roz;
+                        tarp2_1 = tarp.substr(0, 4) + mah + roz;
+                        var sal1 = '';
+                        var mah2 = '';
+                        var roz2 = '';
+                        var tarkasr = tarsh.trim();
+                        sal1 = parseInt(tarkasr.substr(0, 4));
+                        mah2 = parseInt(tarkasr.substr(5, 2));
+                        roz2 = parseInt(tarkasr.substr(8, 2));
+                        var tarmeli1 = ( jd_to_gregorian(persian_to_jd(sal1, mah2, roz2)).join('/') );
+                        var tarkasr = tarp.trim();
+                        sal1 = parseInt(tarkasr.substr(0, 4));
+                        mah2 = parseInt(tarkasr.substr(5, 2));
+                        roz2 = parseInt(tarkasr.substr(8, 2));
+                        var tarmeli2 = ( jd_to_gregorian(persian_to_jd(sal1, mah2, roz2)).join('/') );
+                        d1 = new Date(tarmeli1);
+                        d2 = new Date(tarmeli2);
+                        df = d2 - d1;
+                        dfDay = Math.round(df / 24 / 60 / 60 / 1000);
+                        var count1 = dfDay+1;
+
+                        $("#tedadroz").text( ' ' + count1 + ' '+  'روز' );
+                        temproz1=count1;
+
+
+                    }
+
+                    //     showOutput( jd_to_gregorian( persian_to_jd( pdate[0],pdate[1],pdate[2] ) ).join( '/' ) );
+                } else {
+                    //     showOutput( 'ابتدا تاريخ شمسي را وارد کنيد' );
+                }
+
+            }
+        }
+    );
+    new AMIB.persianCalendar1( 'pdate1', {
+            onchange: function( pdate ){
+
+                if( pdate ) {
+
+                    var mah = 0;
+                    var roz = 0;
+                    tare9 = $("#pdate").val().trim();
+                    tare11 = $("#pdate1").val().trim();
+                    tare12 = $("#pdate2").val().trim();
+                    if (tare9.indexOf('/', 5) == 6) {
+                        mah = '0' + tare9.substr(5, 1);
+                        if (tare9.substr(7, 2).length == 1) {
+                            roz = '0' + tare9.substr(7, 1);
+                        }
+                        else {
+                            roz = tare9.substr(7, 2);
+                        }
+                    }
+                    else if (tare9.indexOf('/', 5) == 7) {
+                        mah = tare9.substr(5, 2);
+                        if (tare9.substr(8, 2).length == 1) {
+                            roz = '0' + tare9.substr(8, 1);
+                        }
+                        else {
+                            roz = tare9.substr(8, 2);
+                        }
+                    }
+                    tare9 = tare9.substr(0, 4)  + mah + roz;
+
+                    if (tare11.indexOf('/', 5) == 6) {
+                        mah = '0' + tare11.substr(5, 1);
+                        if (tare11.substr(7, 2).length == 1) {
+                            roz = '0' + tare11.substr(7, 1);
+                        }
+                        else {
+                            roz = tare11.substr(7, 2);
+                        }
+                    }
+                    else if (tare11.indexOf('/', 5) == 7) {
+                        mah = tare11.substr(5, 2);
+                        if (tare11.substr(8, 2).length == 1) {
+                            roz = '0' + tare11.substr(8, 1);
+                        }
+                        else {
+                            roz = tare11.substr(8, 2);
+                        }
+                    }
+                    tare11 = tare11.substr(0, 4)  + mah  + roz;
+                    if( tare9>tare11 && tare9.length>7)
+                    {
+                        reset();
+                        alertify.alert("تاریخ استراحت اشتباه وارد کرده اید<br><br>");
+                        return false;
+
+                        $("#pdate1").val('');
+                        $("#tedadroz").text('');
+                        $("#Editbox11").val('');
+                        $("#Editbox8").val('');
+
+                    }
+
+
+                    var tarsh1 =$("#pdate").val().trim().length;
+                    var tarp1 = $("#pdate1").val().trim().length;
+                    var tedad = $("#tedadroz").text().trim().length;
+                    var tarsh =$("#pdate").val().trim();
+                    var tarp = $("#pdate1").val().trim();
+                    var mah = 0;
+                    var roz = 0;
+                    if ($("#pdate").val().trim().length > 7 && $("#pdate1").val().trim().length > 7) {
+                        $("#tedadroz").text('');
+                        $("#Editbox11").val('');
+                        $("#Editbox8").val('');
+                        if (tarsh.indexOf('/', 5) == 6) {
+
+                            mah = '0' + tarsh.substr(5, 1);
+                            if (tarsh.substr(7, 2).length == 1) {
+                                roz = '0' + tarsh.substr(7, 1);
+                            }
+                            else {
+                                roz = tarsh.substr(7, 2);
+                            }
+                        }
+                        else if (tarsh.indexOf('/', 5) == 7) {
+
+                            mah = tarsh.substr(5, 2);
+                            if (tarsh.substr(8, 2).length == 1) {
+                                roz = '0' + tarsh.substr(8, 1);
+                            }
+                            else {
+                                roz = tarsh.substr(8, 2);
+                            }
+                        }
+                        tarsh = tarsh.substr(0, 4) + '/' + mah + '/' + roz;
+                        tarsh2_1 = tarsh.substr(0, 4) + mah + roz;
+
+                        if (tarp.indexOf('/', 5) == 6) {
+                            mah = '0' + tarp.substr(5, 1);
+                            if (tarp.substr(7, 2).length == 1) {
+                                roz = '0' + tarp.substr(7, 1);
+                            }
+                            else {
+                                roz = tarp.substr(7, 2);
+                            }
+                        }
+                        else if (tarp.indexOf('/', 5) == 7) {
+                            mah = tarp.substr(5, 2);
+                            if (tarp.substr(8, 2).length == 1) {
+                                roz = '0' + tarp.substr(8, 1);
+                            }
+                            else {
+                                roz = tarp.substr(8, 2);
+                            }
+                        }
+                        tarp = tarp.substr(0, 4) + '/' + mah + '/' + roz;
+                        tarp2_1 = tarp.substr(0, 4) + mah + roz;
+                        var sal1 = '';
+                        var mah2 = '';
+                        var roz2 = '';
+                        var tarkasr = tarsh.trim();
+                        sal1 = parseInt(tarkasr.substr(0, 4));
+                        mah2 = parseInt(tarkasr.substr(5, 2));
+                        roz2 = parseInt(tarkasr.substr(8, 2));
+                        var tarmeli1 = ( jd_to_gregorian(persian_to_jd(sal1, mah2, roz2)).join('/') );
+                        var tarkasr = tarp.trim();
+                        sal1 = parseInt(tarkasr.substr(0, 4));
+                        mah2 = parseInt(tarkasr.substr(5, 2));
+                        roz2 = parseInt(tarkasr.substr(8, 2));
+                        var tarmeli2 = ( jd_to_gregorian(persian_to_jd(sal1, mah2, roz2)).join('/') );
+                        d1 = new Date(tarmeli1);
+                        d2 = new Date(tarmeli2);
+                        df = d2 - d1;
+                        dfDay = Math.round(df / 24 / 60 / 60 / 1000);
+                        var count1 = dfDay+1;
+                        $("#tedadroz").text( ' ' + count1 + ' '+  'روز' );
+                        temproz1=count1;
+                    }
+
+                    //     showOutput( jd_to_gregorian( persian_to_jd( pdate[0],pdate[1],pdate[2] ) ).join( '/' ) );
+                } else {
+                    //     showOutput( 'ابتدا تاريخ شمسي را وارد کنيد' );
+                }
+
+            }
+        }
+    );
+    new AMIB.persianCalendar2( 'pdate2', {
+            onchange: function( pdate ){
+                if( pdate ) {
+                    //     showOutput( jd_to_gregorian( persian_to_jd( pdate[0],pdate[1],pdate[2] ) ).join( '/' ) );
+                } else {
+                    //     showOutput( 'ابتدا تاريخ شمسي را وارد کنيد' );
+                }
+
+            }
+        }
+    );
+
+</script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<h1>Result:</h1>
+<pre id="result"></pre>
+<hr>
+
+<h1>Get All:</h1>
+<label for="firstNameFilter">First Name Filter:</label>
+<input type="text" id="firstNameFilter">
+<button onclick="getAll()">Get All</button>
+
+<hr>
+
+<h1>Save:</h1>
+<label for="idField">Id:</label>
+<input type="text" id="idField">
+<br>
+<label for="firstName">First Name:</label>
+<input type="text" id="firstName">
+<br>
+<label for="lastName">Last Name:</label>
+<input type="text" id="lastName">
+<br>
+<button onclick="save()">Save</button>
+<button onclick="deletePerson()">Delete</button>
+
+<script>
+    function getAll() {
+        var firstNameFilter = $('#firstNameFilter').val();
+        var firstName = $('#firstName').val();
+        var url;
+        if (firstNameFilter != '') {
+            url = '/people/p1?id=' + firstNameFilter+ '&firstName=' + firstName;
+        } else {
+            url = '/people/p1';
+        }
+        $.ajax({
+            url: url,
+            contentType: 'application/json',
+            method: 'POST',
+            success: function (r) {
+                $('#result').html(JSON.stringify(r, null, 2));
+                for (var i = 0; i < r.length; i++)
+                {
+                    console.log(r[i].id+ r[i].firstName);
+                }
+
+            },
+            error: function (r, e) {
+                alert(r + ' ' + e);
+            }
+        });
+
+    }
+
+    function save() {
+        var idField = $('#idField').val();
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+
+        $.ajax({
+            url: '/people',
+            contentType: 'application/json',
+            method: 'POST',
+            data: JSON.stringify({
+                id: idField,
+                firstName: firstName,
+                lastName: lastName
+            }),
+            success: function (r) {
+                $('#result').html(JSON.stringify(r, null, 4));
+            },
+            error: function (r, e) {
+                alert(r + ' ' + e);
+            }
+        });
+
+    }
+
+    function deletePerson() {
+        var idField = $('#idField').val();
+
+        $.ajax({
+            url: '/people/' + idField,
+            contentType: 'application/json',
+            method: 'DELETE',
+            success: function (r) {
+                $('#result').html(r);
+            },
+            error: function (r, e) {
+                alert(r + ' ' + e);
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
